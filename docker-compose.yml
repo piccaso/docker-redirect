@@ -1,0 +1,14 @@
+version: "2.2"
+services:
+  redirect:
+    image: 0xff/redirect
+    read_only: true
+    build: .
+    ports:
+      - "9000:9000"
+    restart: always
+    cap_drop:
+      - ALL
+    environment:
+      TARGET: "https://my-new-site.com/"
+      CODE: "301"
